@@ -14,6 +14,8 @@
 		15D200AA19FD48CF00741669 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D200A919FD48CF00741669 /* Images.xcassets */; };
 		15D200AD19FD48CF00741669 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D200AB19FD48CF00741669 /* LaunchScreen.xib */; };
 		15D200B919FD48CF00741669 /* CustomAVPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200B819FD48CF00741669 /* CustomAVPlayerTests.m */; };
+		15D200C619FD4B5700741669 /* CustomMoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200C419FD4B5700741669 /* CustomMoviePlayer.m */; };
+		15D200C719FD4B5700741669 /* CustomMoviePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D200C519FD4B5700741669 /* CustomMoviePlayer.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		15D200B219FD48CF00741669 /* CustomAVPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomAVPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D200B719FD48CF00741669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15D200B819FD48CF00741669 /* CustomAVPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAVPlayerTests.m; sourceTree = "<group>"; };
+		15D200C319FD4B5700741669 /* CustomMoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMoviePlayer.h; sourceTree = "<group>"; };
+		15D200C419FD4B5700741669 /* CustomMoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMoviePlayer.m; sourceTree = "<group>"; };
+		15D200C519FD4B5700741669 /* CustomMoviePlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMoviePlayer.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 		15D2009B19FD48CF00741669 /* CustomAVPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				15D200C219FD4B4400741669 /* Player */,
 				15D200A019FD48CF00741669 /* AppDelegate.h */,
 				15D200A119FD48CF00741669 /* AppDelegate.m */,
 				15D200A319FD48CF00741669 /* ViewController.h */,
@@ -117,6 +123,16 @@
 				15D200B719FD48CF00741669 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15D200C219FD4B4400741669 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				15D200C319FD4B5700741669 /* CustomMoviePlayer.h */,
+				15D200C419FD4B5700741669 /* CustomMoviePlayer.m */,
+				15D200C519FD4B5700741669 /* CustomMoviePlayer.xib */,
+			);
+			name = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +217,7 @@
 			files = (
 				15D200A819FD48CF00741669 /* Main.storyboard in Resources */,
 				15D200AD19FD48CF00741669 /* LaunchScreen.xib in Resources */,
+				15D200C719FD4B5700741669 /* CustomMoviePlayer.xib in Resources */,
 				15D200AA19FD48CF00741669 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +238,7 @@
 			files = (
 				15D200A519FD48CF00741669 /* ViewController.m in Sources */,
 				15D200A219FD48CF00741669 /* AppDelegate.m in Sources */,
+				15D200C619FD4B5700741669 /* CustomMoviePlayer.m in Sources */,
 				15D2009F19FD48CF00741669 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +432,7 @@
 				15D200BE19FD48CF00741669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15D200BF19FD48CF00741669 /* Build configuration list for PBXNativeTarget "CustomAVPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +441,7 @@
 				15D200C119FD48CF00741669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
