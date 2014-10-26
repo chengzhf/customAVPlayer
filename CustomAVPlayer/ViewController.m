@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "CustomMoviePlayer.h"
 
-@interface ViewController ()
+@interface ViewController (){
+    CustomMoviePlayer *playerView;
+}
 
 @end
 
@@ -17,6 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSArray  *nibArray= [[NSBundle mainBundle] loadNibNamed:@"CustomMoviePlayer" owner:nil options:nil];
+    playerView=(CustomMoviePlayer *)[nibArray firstObject];
+    
+    [self.view addSubview:playerView];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [playerView setFrame:self.view.bounds];
+    [playerView updateLayerFrame];
 }
 
 - (void)didReceiveMemoryWarning {
