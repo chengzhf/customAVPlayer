@@ -119,6 +119,12 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     [self monitorMovieProgress];
     //监控播放状态rate，播放/暂停
     [player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    //监控播放停止状态
+    player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerItemDidReachEnd:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:[player currentItem]];
 }
 
 -(void)layoutSubviews
@@ -244,8 +250,13 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
         [player play];
         [self beginTimer];
     }else if(videoState == VIDEO_STOP){
-        [player play];
-        [self beginTimer];
+        [self showLoading];
+        CMTime beginCMTime = CMTimeMake(0, 1);
+        [player seekToTime:beginCMTime completionHandler:^(BOOL finish){
+            [self hideLoading];
+            [player play];
+            [self beginTimer];
+        }];
     }else{
         [player play];
         [self beginTimer];
@@ -294,6 +305,13 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
             [stateControlBtn setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         }
     }
+}
+
+-(void)playerItemDidReachEnd:(NSNotification *)notification
+{
+    videoState = VIDEO_STOP;
+    [self showControls];
+    [stateControlBtn setBackgroundImage:[UIImage imageNamed:@"replay"] forState:UIControlStateNormal];
 }
 
 //设置视频总时间
