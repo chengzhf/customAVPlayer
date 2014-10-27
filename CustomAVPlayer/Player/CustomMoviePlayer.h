@@ -10,12 +10,17 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+
+@class WZYPlayerSlider;
 @interface CustomMoviePlayer : UIView
 
 
 @property(nonatomic,retain) AVPlayer *player;
 
--(void)updateLayerFrame;
-- (void)setVideoFillMode:(NSString *)fillMode;
+//@property (weak, nonatomic) IBOutlet WZYPlayerSlider *movieSlider;
 
+
+-(void)updateLayerFrame;
+-(void)setVideoFillMode:(NSString *)fillMode;
+-(void)setControlsLayout;
 @end

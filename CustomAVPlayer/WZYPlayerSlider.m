@@ -30,6 +30,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self awakeFromNib];
     }
     return self;
 }
