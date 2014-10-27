@@ -1,493 +1,1205 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		08A5058A19FDE78400C8C89C /* CustomMoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5058619FDE78400C8C89C /* CustomMoviePlayer.m */; };
-		08A5058B19FDE78400C8C89C /* CustomMoviePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A5058719FDE78400C8C89C /* CustomMoviePlayer.xib */; };
-		08A5058C19FDE78400C8C89C /* CustomVideoSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5058919FDE78400C8C89C /* CustomVideoSlider.m */; };
-		08A5059019FDED9800C8C89C /* AVPlayerDemoPlaybackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5058F19FDED9800C8C89C /* AVPlayerDemoPlaybackView.m */; };
-		08A5059619FDF6F000C8C89C /* WZYPlayerSliderPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5059219FDF6F000C8C89C /* WZYPlayerSliderPopover.m */; };
-		08A5059719FDF6F000C8C89C /* WZYPlayerSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5059419FDF6F000C8C89C /* WZYPlayerSlider.m */; };
-		08A5059919FDF6F900C8C89C /* WZYPlayerSliderResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08A5059819FDF6F900C8C89C /* WZYPlayerSliderResources.bundle */; };
-		15D2009F19FD48CF00741669 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D2009E19FD48CF00741669 /* main.m */; };
-		15D200A219FD48CF00741669 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200A119FD48CF00741669 /* AppDelegate.m */; };
-		15D200A519FD48CF00741669 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200A419FD48CF00741669 /* ViewController.m */; };
-		15D200A819FD48CF00741669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D200A619FD48CF00741669 /* Main.storyboard */; };
-		15D200AA19FD48CF00741669 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D200A919FD48CF00741669 /* Images.xcassets */; };
-		15D200AD19FD48CF00741669 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D200AB19FD48CF00741669 /* LaunchScreen.xib */; };
-		15D200B919FD48CF00741669 /* CustomAVPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200B819FD48CF00741669 /* CustomAVPlayerTests.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		15D200B319FD48CF00741669 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 15D2009119FD48CF00741669 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 15D2009819FD48CF00741669;
-			remoteInfo = CustomAVPlayer;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		08A5058519FDE78400C8C89C /* CustomMoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomMoviePlayer.h; path = Player/CustomMoviePlayer.h; sourceTree = "<group>"; };
-		08A5058619FDE78400C8C89C /* CustomMoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomMoviePlayer.m; path = Player/CustomMoviePlayer.m; sourceTree = "<group>"; };
-		08A5058719FDE78400C8C89C /* CustomMoviePlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomMoviePlayer.xib; path = Player/CustomMoviePlayer.xib; sourceTree = "<group>"; };
-		08A5058819FDE78400C8C89C /* CustomVideoSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomVideoSlider.h; path = Player/CustomVideoSlider.h; sourceTree = "<group>"; };
-		08A5058919FDE78400C8C89C /* CustomVideoSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomVideoSlider.m; path = Player/CustomVideoSlider.m; sourceTree = "<group>"; };
-		08A5058E19FDED9800C8C89C /* AVPlayerDemoPlaybackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPlayerDemoPlaybackView.h; path = OthersPlayer/AVPlayerDemoPlaybackView.h; sourceTree = "<group>"; };
-		08A5058F19FDED9800C8C89C /* AVPlayerDemoPlaybackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVPlayerDemoPlaybackView.m; path = OthersPlayer/AVPlayerDemoPlaybackView.m; sourceTree = "<group>"; };
-		08A5059219FDF6F000C8C89C /* WZYPlayerSliderPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZYPlayerSliderPopover.m; sourceTree = "<group>"; };
-		08A5059319FDF6F000C8C89C /* WZYPlayerSliderPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZYPlayerSliderPopover.h; sourceTree = "<group>"; };
-		08A5059419FDF6F000C8C89C /* WZYPlayerSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZYPlayerSlider.m; sourceTree = "<group>"; };
-		08A5059519FDF6F000C8C89C /* WZYPlayerSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZYPlayerSlider.h; sourceTree = "<group>"; };
-		08A5059819FDF6F900C8C89C /* WZYPlayerSliderResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WZYPlayerSliderResources.bundle; sourceTree = "<group>"; };
-		15D2009919FD48CF00741669 /* CustomAVPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomAVPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		15D2009D19FD48CF00741669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15D2009E19FD48CF00741669 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		15D200A019FD48CF00741669 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		15D200A119FD48CF00741669 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		15D200A319FD48CF00741669 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		15D200A419FD48CF00741669 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		15D200A719FD48CF00741669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		15D200A919FD48CF00741669 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		15D200AC19FD48CF00741669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		15D200B219FD48CF00741669 /* CustomAVPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomAVPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		15D200B719FD48CF00741669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15D200B819FD48CF00741669 /* CustomAVPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAVPlayerTests.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		15D2009619FD48CF00741669 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		15D200AF19FD48CF00741669 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		08A5058D19FDED7600C8C89C /* OthersPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				08A5058E19FDED9800C8C89C /* AVPlayerDemoPlaybackView.h */,
-				08A5058F19FDED9800C8C89C /* AVPlayerDemoPlaybackView.m */,
-			);
-			name = OthersPlayer;
-			sourceTree = "<group>";
-		};
-		08A5059119FDF6E000C8C89C /* Slider */ = {
-			isa = PBXGroup;
-			children = (
-				08A5059819FDF6F900C8C89C /* WZYPlayerSliderResources.bundle */,
-				08A5059219FDF6F000C8C89C /* WZYPlayerSliderPopover.m */,
-				08A5059319FDF6F000C8C89C /* WZYPlayerSliderPopover.h */,
-				08A5059419FDF6F000C8C89C /* WZYPlayerSlider.m */,
-				08A5059519FDF6F000C8C89C /* WZYPlayerSlider.h */,
-				08A5058819FDE78400C8C89C /* CustomVideoSlider.h */,
-				08A5058919FDE78400C8C89C /* CustomVideoSlider.m */,
-			);
-			name = Slider;
-			sourceTree = "<group>";
-		};
-		15D2009019FD48CF00741669 = {
-			isa = PBXGroup;
-			children = (
-				15D2009B19FD48CF00741669 /* CustomAVPlayer */,
-				15D200B519FD48CF00741669 /* CustomAVPlayerTests */,
-				15D2009A19FD48CF00741669 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		15D2009A19FD48CF00741669 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				15D2009919FD48CF00741669 /* CustomAVPlayer.app */,
-				15D200B219FD48CF00741669 /* CustomAVPlayerTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		15D2009B19FD48CF00741669 /* CustomAVPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				08A5058D19FDED7600C8C89C /* OthersPlayer */,
-				15D200C219FD4B4400741669 /* Player */,
-				15D200A019FD48CF00741669 /* AppDelegate.h */,
-				15D200A119FD48CF00741669 /* AppDelegate.m */,
-				15D200A319FD48CF00741669 /* ViewController.h */,
-				15D200A419FD48CF00741669 /* ViewController.m */,
-				15D200A619FD48CF00741669 /* Main.storyboard */,
-				15D200A919FD48CF00741669 /* Images.xcassets */,
-				15D200AB19FD48CF00741669 /* LaunchScreen.xib */,
-				15D2009C19FD48CF00741669 /* Supporting Files */,
-			);
-			path = CustomAVPlayer;
-			sourceTree = "<group>";
-		};
-		15D2009C19FD48CF00741669 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				15D2009D19FD48CF00741669 /* Info.plist */,
-				15D2009E19FD48CF00741669 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		15D200B519FD48CF00741669 /* CustomAVPlayerTests */ = {
-			isa = PBXGroup;
-			children = (
-				15D200B819FD48CF00741669 /* CustomAVPlayerTests.m */,
-				15D200B619FD48CF00741669 /* Supporting Files */,
-			);
-			path = CustomAVPlayerTests;
-			sourceTree = "<group>";
-		};
-		15D200B619FD48CF00741669 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				15D200B719FD48CF00741669 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		15D200C219FD4B4400741669 /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				08A5059119FDF6E000C8C89C /* Slider */,
-				08A5058519FDE78400C8C89C /* CustomMoviePlayer.h */,
-				08A5058619FDE78400C8C89C /* CustomMoviePlayer.m */,
-				08A5058719FDE78400C8C89C /* CustomMoviePlayer.xib */,
-			);
-			name = Player;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		15D2009819FD48CF00741669 /* CustomAVPlayer */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 15D200BC19FD48CF00741669 /* Build configuration list for PBXNativeTarget "CustomAVPlayer" */;
-			buildPhases = (
-				15D2009519FD48CF00741669 /* Sources */,
-				15D2009619FD48CF00741669 /* Frameworks */,
-				15D2009719FD48CF00741669 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CustomAVPlayer;
-			productName = CustomAVPlayer;
-			productReference = 15D2009919FD48CF00741669 /* CustomAVPlayer.app */;
-			productType = "com.apple.product-type.application";
-		};
-		15D200B119FD48CF00741669 /* CustomAVPlayerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 15D200BF19FD48CF00741669 /* Build configuration list for PBXNativeTarget "CustomAVPlayerTests" */;
-			buildPhases = (
-				15D200AE19FD48CF00741669 /* Sources */,
-				15D200AF19FD48CF00741669 /* Frameworks */,
-				15D200B019FD48CF00741669 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				15D200B419FD48CF00741669 /* PBXTargetDependency */,
-			);
-			name = CustomAVPlayerTests;
-			productName = CustomAVPlayerTests;
-			productReference = 15D200B219FD48CF00741669 /* CustomAVPlayerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		15D2009119FD48CF00741669 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = ChengZhifeng;
-				TargetAttributes = {
-					15D2009819FD48CF00741669 = {
-						CreatedOnToolsVersion = 6.0.1;
-					};
-					15D200B119FD48CF00741669 = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 15D2009819FD48CF00741669;
-					};
-				};
-			};
-			buildConfigurationList = 15D2009419FD48CF00741669 /* Build configuration list for PBXProject "CustomAVPlayer" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 15D2009019FD48CF00741669;
-			productRefGroup = 15D2009A19FD48CF00741669 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				15D2009819FD48CF00741669 /* CustomAVPlayer */,
-				15D200B119FD48CF00741669 /* CustomAVPlayerTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		15D2009719FD48CF00741669 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08A5059919FDF6F900C8C89C /* WZYPlayerSliderResources.bundle in Resources */,
-				15D200A819FD48CF00741669 /* Main.storyboard in Resources */,
-				15D200AD19FD48CF00741669 /* LaunchScreen.xib in Resources */,
-				08A5058B19FDE78400C8C89C /* CustomMoviePlayer.xib in Resources */,
-				15D200AA19FD48CF00741669 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		15D200B019FD48CF00741669 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		15D2009519FD48CF00741669 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				15D200A519FD48CF00741669 /* ViewController.m in Sources */,
-				15D200A219FD48CF00741669 /* AppDelegate.m in Sources */,
-				08A5059019FDED9800C8C89C /* AVPlayerDemoPlaybackView.m in Sources */,
-				08A5058C19FDE78400C8C89C /* CustomVideoSlider.m in Sources */,
-				08A5059619FDF6F000C8C89C /* WZYPlayerSliderPopover.m in Sources */,
-				08A5058A19FDE78400C8C89C /* CustomMoviePlayer.m in Sources */,
-				08A5059719FDF6F000C8C89C /* WZYPlayerSlider.m in Sources */,
-				15D2009F19FD48CF00741669 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		15D200AE19FD48CF00741669 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				15D200B919FD48CF00741669 /* CustomAVPlayerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		15D200B419FD48CF00741669 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 15D2009819FD48CF00741669 /* CustomAVPlayer */;
-			targetProxy = 15D200B319FD48CF00741669 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		15D200A619FD48CF00741669 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				15D200A719FD48CF00741669 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		15D200AB19FD48CF00741669 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				15D200AC19FD48CF00741669 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		15D200BA19FD48CF00741669 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		15D200BB19FD48CF00741669 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		15D200BD19FD48CF00741669 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CustomAVPlayer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		15D200BE19FD48CF00741669 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CustomAVPlayer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		15D200C019FD48CF00741669 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CustomAVPlayerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomAVPlayer.app/CustomAVPlayer";
-			};
-			name = Debug;
-		};
-		15D200C119FD48CF00741669 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CustomAVPlayerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomAVPlayer.app/CustomAVPlayer";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		15D2009419FD48CF00741669 /* Build configuration list for PBXProject "CustomAVPlayer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				15D200BA19FD48CF00741669 /* Debug */,
-				15D200BB19FD48CF00741669 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		15D200BC19FD48CF00741669 /* Build configuration list for PBXNativeTarget "CustomAVPlayer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				15D200BD19FD48CF00741669 /* Debug */,
-				15D200BE19FD48CF00741669 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		15D200BF19FD48CF00741669 /* Build configuration list for PBXNativeTarget "CustomAVPlayerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				15D200C019FD48CF00741669 /* Debug */,
-				15D200C119FD48CF00741669 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 15D2009119FD48CF00741669 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>08A5058519FDE78400C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CustomMoviePlayer.h</string>
+			<key>path</key>
+			<string>Player/CustomMoviePlayer.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5058619FDE78400C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>CustomMoviePlayer.m</string>
+			<key>path</key>
+			<string>Player/CustomMoviePlayer.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5058719FDE78400C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>CustomMoviePlayer.xib</string>
+			<key>path</key>
+			<string>Player/CustomMoviePlayer.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5058819FDE78400C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CustomVideoSlider.h</string>
+			<key>path</key>
+			<string>Player/CustomVideoSlider.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5058919FDE78400C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>CustomVideoSlider.m</string>
+			<key>path</key>
+			<string>Player/CustomVideoSlider.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5058A19FDE78400C8C89C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>08A5058619FDE78400C8C89C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>08A5058B19FDE78400C8C89C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>08A5058719FDE78400C8C89C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>08A5058C19FDE78400C8C89C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>08A5058919FDE78400C8C89C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>08A5058D19FDED7600C8C89C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>08A5058E19FDED9800C8C89C</string>
+				<string>08A5058F19FDED9800C8C89C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>OthersPlayer</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5058E19FDED9800C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>AVPlayerDemoPlaybackView.h</string>
+			<key>path</key>
+			<string>OthersPlayer/AVPlayerDemoPlaybackView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5058F19FDED9800C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>AVPlayerDemoPlaybackView.m</string>
+			<key>path</key>
+			<string>OthersPlayer/AVPlayerDemoPlaybackView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5059019FDED9800C8C89C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>08A5058F19FDED9800C8C89C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>08A5059119FDF6E000C8C89C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>08A5059819FDF6F900C8C89C</string>
+				<string>08A5059219FDF6F000C8C89C</string>
+				<string>08A5059319FDF6F000C8C89C</string>
+				<string>08A5059419FDF6F000C8C89C</string>
+				<string>08A5059519FDF6F000C8C89C</string>
+				<string>08A5058819FDE78400C8C89C</string>
+				<string>08A5058919FDE78400C8C89C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Slider</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5059219FDF6F000C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>WZYPlayerSliderPopover.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5059319FDF6F000C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>WZYPlayerSliderPopover.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5059419FDF6F000C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>WZYPlayerSlider.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5059519FDF6F000C8C89C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>WZYPlayerSlider.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5059619FDF6F000C8C89C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>08A5059219FDF6F000C8C89C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>08A5059719FDF6F000C8C89C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>08A5059419FDF6F000C8C89C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>08A5059819FDF6F900C8C89C</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.plug-in</string>
+			<key>path</key>
+			<string>WZYPlayerSliderResources.bundle</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08A5059919FDF6F900C8C89C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>08A5059819FDF6F900C8C89C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>15D2009019FD48CF00741669</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>15D2009B19FD48CF00741669</string>
+				<string>15D200B519FD48CF00741669</string>
+				<string>15D2009A19FD48CF00741669</string>
+				<string>D86AC66C46514FC0A58A301A</string>
+				<string>36F4AC7B87C54637AF47BEE2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D2009119FD48CF00741669</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0600</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>ChengZhifeng</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>15D2009819FD48CF00741669</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.0.1</string>
+					</dict>
+					<key>15D200B119FD48CF00741669</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.0.1</string>
+						<key>TestTargetID</key>
+						<string>15D2009819FD48CF00741669</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>15D2009419FD48CF00741669</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>15D2009019FD48CF00741669</string>
+			<key>productRefGroup</key>
+			<string>15D2009A19FD48CF00741669</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>15D2009819FD48CF00741669</string>
+				<string>15D200B119FD48CF00741669</string>
+			</array>
+		</dict>
+		<key>15D2009419FD48CF00741669</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>15D200BA19FD48CF00741669</string>
+				<string>15D200BB19FD48CF00741669</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>15D2009519FD48CF00741669</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>15D200A519FD48CF00741669</string>
+				<string>15D200A219FD48CF00741669</string>
+				<string>08A5059019FDED9800C8C89C</string>
+				<string>08A5058C19FDE78400C8C89C</string>
+				<string>08A5059619FDF6F000C8C89C</string>
+				<string>08A5058A19FDE78400C8C89C</string>
+				<string>08A5059719FDF6F000C8C89C</string>
+				<string>15D2009F19FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>15D2009619FD48CF00741669</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>95D594B166914AB59D4BF3C8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>15D2009719FD48CF00741669</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>08A5059919FDF6F900C8C89C</string>
+				<string>15D200A819FD48CF00741669</string>
+				<string>15D200AD19FD48CF00741669</string>
+				<string>08A5058B19FDE78400C8C89C</string>
+				<string>15D200AA19FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>15D2009819FD48CF00741669</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>15D200BC19FD48CF00741669</string>
+			<key>buildPhases</key>
+			<array>
+				<string>83597D06A3BE49A695C1B8B8</string>
+				<string>15D2009519FD48CF00741669</string>
+				<string>15D2009619FD48CF00741669</string>
+				<string>15D2009719FD48CF00741669</string>
+				<string>8872666C61A74CABB3E0C947</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>CustomAVPlayer</string>
+			<key>productName</key>
+			<string>CustomAVPlayer</string>
+			<key>productReference</key>
+			<string>15D2009919FD48CF00741669</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>15D2009919FD48CF00741669</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>CustomAVPlayer.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>15D2009A19FD48CF00741669</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>15D2009919FD48CF00741669</string>
+				<string>15D200B219FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D2009B19FD48CF00741669</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>08A5058D19FDED7600C8C89C</string>
+				<string>15D200C219FD4B4400741669</string>
+				<string>15D200A019FD48CF00741669</string>
+				<string>15D200A119FD48CF00741669</string>
+				<string>15D200A319FD48CF00741669</string>
+				<string>15D200A419FD48CF00741669</string>
+				<string>15D200A619FD48CF00741669</string>
+				<string>15D200A919FD48CF00741669</string>
+				<string>15D200AB19FD48CF00741669</string>
+				<string>15D2009C19FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>CustomAVPlayer</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D2009C19FD48CF00741669</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>15D2009D19FD48CF00741669</string>
+				<string>15D2009E19FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D2009D19FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D2009E19FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D2009F19FD48CF00741669</key>
+		<dict>
+			<key>fileRef</key>
+			<string>15D2009E19FD48CF00741669</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>15D200A019FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200A119FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200A219FD48CF00741669</key>
+		<dict>
+			<key>fileRef</key>
+			<string>15D200A119FD48CF00741669</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>15D200A319FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>ViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200A419FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200A519FD48CF00741669</key>
+		<dict>
+			<key>fileRef</key>
+			<string>15D200A419FD48CF00741669</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>15D200A619FD48CF00741669</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>15D200A719FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200A719FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200A819FD48CF00741669</key>
+		<dict>
+			<key>fileRef</key>
+			<string>15D200A619FD48CF00741669</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>15D200A919FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200AA19FD48CF00741669</key>
+		<dict>
+			<key>fileRef</key>
+			<string>15D200A919FD48CF00741669</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>15D200AB19FD48CF00741669</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>15D200AC19FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200AC19FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200AD19FD48CF00741669</key>
+		<dict>
+			<key>fileRef</key>
+			<string>15D200AB19FD48CF00741669</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>15D200AE19FD48CF00741669</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>15D200B919FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>15D200AF19FD48CF00741669</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>15D200B019FD48CF00741669</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>15D200B119FD48CF00741669</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>15D200BF19FD48CF00741669</string>
+			<key>buildPhases</key>
+			<array>
+				<string>15D200AE19FD48CF00741669</string>
+				<string>15D200AF19FD48CF00741669</string>
+				<string>15D200B019FD48CF00741669</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>15D200B419FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>CustomAVPlayerTests</string>
+			<key>productName</key>
+			<string>CustomAVPlayerTests</string>
+			<key>productReference</key>
+			<string>15D200B219FD48CF00741669</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>15D200B219FD48CF00741669</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>CustomAVPlayerTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>15D200B319FD48CF00741669</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>15D2009119FD48CF00741669</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>15D2009819FD48CF00741669</string>
+			<key>remoteInfo</key>
+			<string>CustomAVPlayer</string>
+		</dict>
+		<key>15D200B419FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>15D2009819FD48CF00741669</string>
+			<key>targetProxy</key>
+			<string>15D200B319FD48CF00741669</string>
+		</dict>
+		<key>15D200B519FD48CF00741669</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>15D200B819FD48CF00741669</string>
+				<string>15D200B619FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>CustomAVPlayerTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200B619FD48CF00741669</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>15D200B719FD48CF00741669</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200B719FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200B819FD48CF00741669</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CustomAVPlayerTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>15D200B919FD48CF00741669</key>
+		<dict>
+			<key>fileRef</key>
+			<string>15D200B819FD48CF00741669</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>15D200BA19FD48CF00741669</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>15D200BB19FD48CF00741669</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>15D200BC19FD48CF00741669</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>15D200BD19FD48CF00741669</string>
+				<string>15D200BE19FD48CF00741669</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>15D200BD19FD48CF00741669</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D86AC66C46514FC0A58A301A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>CustomAVPlayer/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>15D200BE19FD48CF00741669</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D86AC66C46514FC0A58A301A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>CustomAVPlayer/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>15D200BF19FD48CF00741669</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>15D200C019FD48CF00741669</string>
+				<string>15D200C119FD48CF00741669</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>15D200C019FD48CF00741669</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>CustomAVPlayerTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/CustomAVPlayer.app/CustomAVPlayer</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>15D200C119FD48CF00741669</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>CustomAVPlayerTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/CustomAVPlayer.app/CustomAVPlayer</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>15D200C219FD4B4400741669</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>08A5059119FDF6E000C8C89C</string>
+				<string>08A5058519FDE78400C8C89C</string>
+				<string>08A5058619FDE78400C8C89C</string>
+				<string>08A5058719FDE78400C8C89C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Player</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>36F4AC7B87C54637AF47BEE2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A1AA2CEE1E8347BA863E46BE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>83597D06A3BE49A695C1B8B8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>8872666C61A74CABB3E0C947</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>95D594B166914AB59D4BF3C8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A1AA2CEE1E8347BA863E46BE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A1AA2CEE1E8347BA863E46BE</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>D86AC66C46514FC0A58A301A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>15D2009119FD48CF00741669</string>
+</dict>
+</plist>

@@ -24,11 +24,13 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 #import "CustomMoviePlayer.h"
 #import "WZYPlayerSlider.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 
 @interface CustomMoviePlayer()
 {
     AVPlayerItem *playerItem;
+    BOOL isPlaying;
     
     //视频概要图
     UIView *thumbImageView;
@@ -98,6 +100,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 #pragma  mark - init methods
 -(void)awakeFromNib
 {
+    [self initParameters];
     [self initCustomControls];
     
 //    NSString *movieURL = @"http://www.jxvdy.com/file/upload/201309/18/18-10-03-19-3.mp4";
@@ -121,6 +124,10 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     [self setControlsLayout];
 }
 
+-(void)initParameters
+{
+    isPlaying = YES;
+}
 
 //初始化控件布局。。布局与状态，逻辑要分开。。等弄到旋转的时候就拆吧。。
 -(void)initCustomControls
@@ -299,15 +306,11 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     double currentTime = movieSlider.value;
     //转换成CMTime才能给player来控制播放进度
     CMTime dragedCMTime = CMTimeMake(currentTime, 1);
-    [player seekToTime:dragedCMTime completionHandler:
-     ^(BOOL finish)
-     {
-//         if (isPlaying == YES)
-//         {
-//             [_LGCustomMoviePlayerController.player play];
-//         }
-         
-         [player play];
+    [player seekToTime:dragedCMTime completionHandler:^(BOOL finish){
+         if (isPlaying == YES)
+         {
+             [player play];
+         }
      }];
 }
 
@@ -343,6 +346,18 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     } else {
         return 0.0f;
     }
+}
+
+-(void)showLoading
+{
+    MBProgressHUD *loadingView = [[MBProgressHUD alloc] initWithView:self];
+    [self addSubview:loadingView];
+    [loadingView show:YES];
+}
+
+-(void)hideLoading
+{
+    [MBProgressHUD hideAllHUDsForView:self animated:YES];
 }
 
 @end
