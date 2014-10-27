@@ -8,7 +8,6 @@
 
 static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPlayerDemoPlaybackViewControllerStatusObservationContext;
 
-
 #define FRAME_HEIGHT self.bounds.size.height
 #define FRAME_WIDTH self.bounds.size.width
 #define TOP_BAR_HEIGHT 70
@@ -18,9 +17,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 #define BOTTOM_CONTROL_HEIGHT 64
 #define FULL_SCREEN_WIDTH 64
 #define FULL_SCREEN_HEIGHT 64
-#define SLIDE_TIMER_INTERVAL 5
-#define PLAY_TIMER_INTERVAL 0.2
-#define BUFFER_TIMER_INTERVAL 0.5
+#define HIDECONTROL_TIMER_INTERVAL 3
 
 #import "CustomMoviePlayer.h"
 #import "WZYPlayerSlider.h"
@@ -30,7 +27,9 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 @interface CustomMoviePlayer()
 {
     AVPlayerItem *playerItem;
-    BOOL isPlaying;
+
+    BOOL isShowingControls;
+    NSTimer *hideControlsTimer;
     
     //视频概要图
     UIView *thumbImageView;
@@ -59,7 +58,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 @implementation CustomMoviePlayer
 
-@synthesize player;
+@synthesize player,videoState;
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -102,6 +101,9 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 {
     [self initParameters];
     [self initCustomControls];
+    [self initGestures];
+    
+    [self showLoading];
     
 //    NSString *movieURL = @"http://www.jxvdy.com/file/upload/201309/18/18-10-03-19-3.mp4";
     NSString *movieURL = @"http://fkzt.nos.netease.com/ios_sample.mp4";
@@ -112,11 +114,11 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     //监控视频状态
     [player.currentItem addObserver:self forKeyPath:@"status" options:0 context:AVPlayerDemoPlaybackViewControllerStatusObservationContext];
     //监控缓冲状态
-    [player.currentItem  addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
-    //监控播放状态
+    [player.currentItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+    //监控播放进度
     [self monitorMovieProgress];
-    
-    
+    //监控播放状态rate，播放/暂停
+    [player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
 }
 
 -(void)layoutSubviews
@@ -126,10 +128,17 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 -(void)initParameters
 {
-    isPlaying = YES;
+    videoState = VIDEO_PLAYING;
+    isShowingControls = YES;
 }
 
-//初始化控件布局。。布局与状态，逻辑要分开。。等弄到旋转的时候就拆吧。。
+-(void)initGestures
+{
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    [self addGestureRecognizer:tapGesture];
+}
+
+//初始化控件布局。
 -(void)initCustomControls
 {
     controlsView = [[UIView alloc] init];
@@ -218,11 +227,29 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     [self playerLayer].frame = self.layer.bounds;
 }
 
+-(void)dealloc
+{
+    //释放监控
+    [player.currentItem removeObserver:self forKeyPath:@"status" context:nil];
+    [player.currentItem removeObserver:self forKeyPath:@"loadedTimeRanges" context:nil];
+}
 
 #pragma mark - controls actions
 -(void)didStateControl:(id)sender
 {
-    
+    if (videoState == VIDEO_PLAYING) {
+        [player pause];
+        [self endTimer];
+    }else if(videoState == VIDEO_PAUSE){
+        [player play];
+        [self beginTimer];
+    }else if(videoState == VIDEO_STOP){
+        [player play];
+        [self beginTimer];
+    }else{
+        [player play];
+        [self beginTimer];
+    }
 }
 
 -(void)didSliderValueChange:(id)sender
@@ -246,6 +273,8 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
             [self setPlayer:player];
             [player play];
             [self setDuration];
+            [self hideLoading];
+            [self beginTimer];
         }
     }
     
@@ -255,6 +284,16 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
         movieSlider.availableDuration = bufferTime;
     }
 
+    if ([keyPath isEqualToString:@"rate"]) {
+        if (player.rate>=1.0) {
+            videoState = VIDEO_PLAYING;
+            [stateControlBtn setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+        }else{
+            videoState = VIDEO_PAUSE;
+            [self showControls];
+            [stateControlBtn setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+        }
+    }
 }
 
 //设置视频总时间
@@ -298,6 +337,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 -(void)scrubbingDidBegin:(id)sender
 {
     [player pause];
+    [self showLoading];
 }
 
 //快进
@@ -307,7 +347,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     //转换成CMTime才能给player来控制播放进度
     CMTime dragedCMTime = CMTimeMake(currentTime, 1);
     [player seekToTime:dragedCMTime completionHandler:^(BOOL finish){
-         if (isPlaying == YES)
+         if (videoState == VIDEO_PLAYING)
          {
              [player play];
          }
@@ -316,9 +356,28 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 -(void)scrubbingDidEnd:(id)sender
 {
-//    self.Moviebuffer.hidden = NO;
-//    [_Moviebuffer startAnimating];
+    [self hideLoading];
 }
+
+#pragma mark - gesture methods
+-(void)tap:(UIGestureRecognizer *)gesture
+{
+    if (!isShowingControls) {
+        [self showControls];
+        [self beginTimer];
+    }else{
+        [self hideControls];
+        [self endTimer];
+    }
+}
+
+
+#pragma mark - timer methods
+-(void)hideControlsTimeUp:(id)sender
+{
+    [self hideControls];
+}
+
 
 #pragma mark - private methods
 -(NSString *)timeInfoFormat:(CGFloat)timeNumber
@@ -358,6 +417,32 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 -(void)hideLoading
 {
     [MBProgressHUD hideAllHUDsForView:self animated:YES];
+}
+
+-(void)beginTimer
+{
+    [self endTimer];
+    hideControlsTimer = [NSTimer scheduledTimerWithTimeInterval:HIDECONTROL_TIMER_INTERVAL target:self selector:@selector(hideControlsTimeUp:) userInfo:nil repeats:NO];
+}
+
+-(void)endTimer
+{
+    if (hideControlsTimer) {
+        [hideControlsTimer invalidate];
+        hideControlsTimer = nil;
+    }
+}
+
+-(void)showControls
+{
+    controlsView.alpha = 1;
+    isShowingControls = YES;
+}
+
+-(void)hideControls
+{
+    controlsView.alpha = 0;
+    isShowingControls = NO;
 }
 
 @end

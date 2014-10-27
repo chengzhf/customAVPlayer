@@ -6,9 +6,12 @@
 //  Copyright (c) 2014年 ChengZhifeng. All rights reserved.
 //
 
+
+
 #import <UIKit/UIKit.h>
 
 #import <AVFoundation/AVFoundation.h>
+#import "CustomMoviePlayerConstant.h"
 
 
 @class WZYPlayerSlider;
@@ -17,7 +20,7 @@
 
 @property(nonatomic,retain) AVPlayer *player;
 
-//@property (weak, nonatomic) IBOutlet WZYPlayerSlider *movieSlider;
+@property (assign, nonatomic)  VideoState videoState;;
 
 
 -(void)updateLayerFrame;
