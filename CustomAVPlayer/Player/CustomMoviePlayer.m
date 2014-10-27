@@ -22,6 +22,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 #import "CustomMoviePlayer.h"
 #import "WZYPlayerSlider.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <SDWebImage/SDWebImageManager.h>
 
 
 @interface CustomMoviePlayer()
@@ -34,7 +35,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     NSTimer *hideControlsTimer;
     
     //视频概要图
-    UIView *thumbImageView;
+    UIImageView *preImageView;
     
     //更多功能层
     UIView *controlsView;
@@ -43,6 +44,11 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     UIView *bottomBarView;
     //更多功能层里面的顶部bar
     UIView *topBarView;
+    
+    //下拉按钮
+    UIButton *dragDownBtn;
+    //分享按钮
+    UIButton *snsShareBtn;
     
     //播放、暂停、重放。也放在更多功能层里
     UIButton *stateControlBtn;
@@ -60,7 +66,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 @implementation CustomMoviePlayer
 
-@synthesize player,videoState;
+@synthesize player,videoState,delegate;
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -107,10 +113,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     
     [self showLoading];
     
-//    NSString *movieURL = @"http://www.jxvdy.com/file/upload/201309/18/18-10-03-19-3.mp4";
-    NSString *movieURL = @"http://fkzt.nos.netease.com/ios_sample.mp4";
-    
-    playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:movieURL]];
+    playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.videoURL]];
     player = [AVPlayer playerWithPlayerItem:playerItem];
     
     //监控视频状态
@@ -151,6 +154,10 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 {
     videoState = VIDEO_PLAYING;
     isShowingControls = YES;
+    
+    //测试数据
+    self.videoURL = @"http://fkzt.nos.netease.com/ios_sample1.mp4";
+    //NSString *movieURL = @"http://www.jxvdy.com/file/upload/201309/18/18-10-03-19-3.mp4";
 }
 
 -(void)initGestures
@@ -159,9 +166,17 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     [self addGestureRecognizer:tapGesture];
 }
 
-//初始化控件布局。
+//初始化控件
 -(void)initCustomControls
 {
+    preImageView = [[UIImageView alloc] init];
+    [preImageView setContentMode:UIViewContentModeScaleAspectFit];
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.previewImageURL] options:SDWebImageHighPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        [preImageView setImage:image];
+    }];
+    [self addSubview:preImageView];
+    
     controlsView = [[UIView alloc] init];
     [self addSubview:controlsView];
     
@@ -171,6 +186,19 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     [bottomBarView setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5]];
     [controlsView addSubview:topBarView];
     [controlsView addSubview:bottomBarView];
+    
+    //下拉按钮
+    dragDownBtn = [[UIButton alloc] init];
+    [dragDownBtn setBackgroundImage:[UIImage imageNamed:@"pulldown"] forState:UIControlStateNormal];
+    [dragDownBtn addTarget:self action:@selector(didPullDown:) forControlEvents:UIControlEventTouchUpInside];
+    [topBarView addSubview:dragDownBtn];
+    
+    
+    //分享按钮
+    snsShareBtn = [[UIButton alloc] init];
+    [snsShareBtn setBackgroundImage:[UIImage imageNamed:@"snsShare"] forState:UIControlStateNormal];
+    [snsShareBtn addTarget:self action:@selector(didSNSShare:) forControlEvents:UIControlEventTouchUpInside];
+    [topBarView addSubview:snsShareBtn];
     
 
     //播放、暂停、重放
@@ -191,6 +219,8 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     //滑动条
     movieSlider = [[WZYPlayerSlider alloc] init];
     movieSlider.minimumValue = 0.0f;
+    movieSlider.maximumValue = 0.0f;
+    movieSlider.duration = 0.0f;
     [movieSlider.layer setBorderColor:[UIColor redColor].CGColor];
     [movieSlider.layer setBorderWidth:1.0f];
     [movieSlider addTarget:self action:@selector(didSliderValueChange:) forControlEvents:UIControlEventValueChanged];
@@ -207,10 +237,17 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 //设置控件的布局
 -(void)setControlsLayout
 {
+    [preImageView setFrame:self.bounds];
     [controlsView  setFrame:self.bounds];
     
     [topBarView setFrame:CGRectMake(0, 0, FRAME_WIDTH, TOP_BAR_HEIGHT)];
     [bottomBarView setFrame:CGRectMake(0, FRAME_HEIGHT - BOTTOM_BAR_HEIGHT, FRAME_WIDTH, BOTTOM_BAR_HEIGHT)];
+    
+    //下拉按钮
+    [dragDownBtn setFrame:CGRectMake(8, (TOP_BAR_HEIGHT - SHARE_BTN_WIDTH)/2, SHARE_BTN_WIDTH, SHARE_BTN_WIDTH)];
+    
+    //分享按钮
+    [snsShareBtn setFrame:CGRectMake(FRAME_WIDTH - SHARE_BTN_WIDTH - 8, (TOP_BAR_HEIGHT - SHARE_BTN_WIDTH)/2, SHARE_BTN_WIDTH, SHARE_BTN_WIDTH)];
     
     //播放、暂停、重放
     CGFloat playControlWidth = STATE_IMAGE_WIDTH;
@@ -256,8 +293,27 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 }
 
 #pragma mark - controls actions
+-(void)didPullDown:(id)sender
+{
+    [self endTimer];
+    if ([delegate respondsToSelector:@selector(pulldown:)]) {
+        [delegate pulldown:self];
+    }
+    [self beginTimer];
+}
+
+-(void)didSNSShare:(id)sender
+{
+    [self endTimer];
+    if ([delegate respondsToSelector:@selector(snsShare:)]) {
+        [delegate snsShare:self];
+    }
+    [self beginTimer];
+}
+
 -(void)didStateControl:(id)sender
 {
+    [self endTimer];
     if (videoState == VIDEO_PLAYING) {
         [player pause];
         [self endTimer];
@@ -285,6 +341,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 -(void)didFullScreen:(id)sender
 {
+    [self endTimer];
     if(isFullScreen){
         [self exitFullScreen];
     }else{
@@ -299,6 +356,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     if ([keyPath isEqualToString:@"status"]) {
         NSLog(@"status:%ld",(long)player.status);
         if (player.status == AVPlayerStatusReadyToPlay) {
+            [preImageView setAlpha:0.0f];
             //开始播放并设置总时间
             [self setPlayer:player];
             [player play];
@@ -336,16 +394,14 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 //设置视频总时间
 -(void)setDuration
 {
-    //计算视频总时间
     CMTime totalTime = player.currentItem.duration;
     CGFloat totalMovieDuration = (CGFloat)totalTime.value/totalTime.timescale;
-    NSString *totalDurationStr = [self timeInfoFormat:totalMovieDuration];
-    NSLog(@"totalMovieDuration:%@",totalDurationStr);
-    //在totalTimeLabel上显示总时间
-    durationLabel.text = totalDurationStr;
-    //设置slider
-    movieSlider.maximumValue = totalMovieDuration;
-    movieSlider.duration = totalMovieDuration;
+    if (totalMovieDuration>0) {
+        NSString *totalDurationStr = [self timeInfoFormat:totalMovieDuration];
+        durationLabel.text = totalDurationStr;
+        movieSlider.maximumValue = totalMovieDuration;
+        movieSlider.duration = totalMovieDuration;
+    }
 }
 
 //监控视频播放的进度
@@ -491,9 +547,9 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     UIWindow *w = [[UIApplication sharedApplication].delegate window];
     self.frame = w.bounds;
  
+    [topBarView setAlpha:0.0f];
     [self showControls];
     [self beginTimer];
-
 }
 
 -(void)exitFullScreen
@@ -504,6 +560,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     [self printRectInfo:normalFrame];
     self.frame = normalFrame;
     
+    [topBarView setAlpha:1.0f];
     [self showControls];
     [self beginTimer];
 }

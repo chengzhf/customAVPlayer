@@ -6,3 +6,4 @@ inhibit_all_warnings!
 
 # dependencies
 pod 'MBProgressHUD', '~> 0.9'
+pod 'SDWebImage', '~> 3.7.1'

@@ -9,7 +9,8 @@
 #import "ViewController.h"
 #import "CustomMoviePlayer.h"
 
-@interface ViewController (){
+@interface ViewController ()<CustomMoviePlayerDelegate>
+{
 
 }
 
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
+    self.player1.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -41,6 +42,16 @@
 }
 
 
+-(void)pulldown:(CustomMoviePlayer *)customMoviePlayer
+{
+    NSLog(@"pull down");
+}
+
+
+-(void)snsShare:(CustomMoviePlayer *)customMoviePlayer
+{
+    NSLog(@"sns share");
+}
 
 
 @end
