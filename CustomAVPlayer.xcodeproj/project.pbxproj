@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08A5058A19FDE78400C8C89C /* CustomMoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5058619FDE78400C8C89C /* CustomMoviePlayer.m */; };
+		08A5058B19FDE78400C8C89C /* CustomMoviePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A5058719FDE78400C8C89C /* CustomMoviePlayer.xib */; };
+		08A5058C19FDE78400C8C89C /* CustomVideoSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5058919FDE78400C8C89C /* CustomVideoSlider.m */; };
+		08A5059019FDED9800C8C89C /* AVPlayerDemoPlaybackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5058F19FDED9800C8C89C /* AVPlayerDemoPlaybackView.m */; };
+		08A5059619FDF6F000C8C89C /* WZYPlayerSliderPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5059219FDF6F000C8C89C /* WZYPlayerSliderPopover.m */; };
+		08A5059719FDF6F000C8C89C /* WZYPlayerSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A5059419FDF6F000C8C89C /* WZYPlayerSlider.m */; };
+		08A5059919FDF6F900C8C89C /* WZYPlayerSliderResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08A5059819FDF6F900C8C89C /* WZYPlayerSliderResources.bundle */; };
 		15D2009F19FD48CF00741669 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D2009E19FD48CF00741669 /* main.m */; };
 		15D200A219FD48CF00741669 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200A119FD48CF00741669 /* AppDelegate.m */; };
 		15D200A519FD48CF00741669 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200A419FD48CF00741669 /* ViewController.m */; };
@@ -14,9 +21,6 @@
 		15D200AA19FD48CF00741669 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D200A919FD48CF00741669 /* Images.xcassets */; };
 		15D200AD19FD48CF00741669 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D200AB19FD48CF00741669 /* LaunchScreen.xib */; };
 		15D200B919FD48CF00741669 /* CustomAVPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200B819FD48CF00741669 /* CustomAVPlayerTests.m */; };
-		15D200C619FD4B5700741669 /* CustomMoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200C419FD4B5700741669 /* CustomMoviePlayer.m */; };
-		15D200C719FD4B5700741669 /* CustomMoviePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D200C519FD4B5700741669 /* CustomMoviePlayer.xib */; };
-		15D200CA19FD4DDE00741669 /* CustomVideoSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D200C919FD4DDE00741669 /* CustomVideoSlider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +34,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08A5058519FDE78400C8C89C /* CustomMoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomMoviePlayer.h; path = Player/CustomMoviePlayer.h; sourceTree = "<group>"; };
+		08A5058619FDE78400C8C89C /* CustomMoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomMoviePlayer.m; path = Player/CustomMoviePlayer.m; sourceTree = "<group>"; };
+		08A5058719FDE78400C8C89C /* CustomMoviePlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomMoviePlayer.xib; path = Player/CustomMoviePlayer.xib; sourceTree = "<group>"; };
+		08A5058819FDE78400C8C89C /* CustomVideoSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomVideoSlider.h; path = Player/CustomVideoSlider.h; sourceTree = "<group>"; };
+		08A5058919FDE78400C8C89C /* CustomVideoSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomVideoSlider.m; path = Player/CustomVideoSlider.m; sourceTree = "<group>"; };
+		08A5058E19FDED9800C8C89C /* AVPlayerDemoPlaybackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVPlayerDemoPlaybackView.h; path = OthersPlayer/AVPlayerDemoPlaybackView.h; sourceTree = "<group>"; };
+		08A5058F19FDED9800C8C89C /* AVPlayerDemoPlaybackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVPlayerDemoPlaybackView.m; path = OthersPlayer/AVPlayerDemoPlaybackView.m; sourceTree = "<group>"; };
+		08A5059219FDF6F000C8C89C /* WZYPlayerSliderPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZYPlayerSliderPopover.m; sourceTree = "<group>"; };
+		08A5059319FDF6F000C8C89C /* WZYPlayerSliderPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZYPlayerSliderPopover.h; sourceTree = "<group>"; };
+		08A5059419FDF6F000C8C89C /* WZYPlayerSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZYPlayerSlider.m; sourceTree = "<group>"; };
+		08A5059519FDF6F000C8C89C /* WZYPlayerSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZYPlayerSlider.h; sourceTree = "<group>"; };
+		08A5059819FDF6F900C8C89C /* WZYPlayerSliderResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WZYPlayerSliderResources.bundle; sourceTree = "<group>"; };
 		15D2009919FD48CF00741669 /* CustomAVPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomAVPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D2009D19FD48CF00741669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15D2009E19FD48CF00741669 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,11 +59,6 @@
 		15D200B219FD48CF00741669 /* CustomAVPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomAVPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D200B719FD48CF00741669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15D200B819FD48CF00741669 /* CustomAVPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAVPlayerTests.m; sourceTree = "<group>"; };
-		15D200C319FD4B5700741669 /* CustomMoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMoviePlayer.h; sourceTree = "<group>"; };
-		15D200C419FD4B5700741669 /* CustomMoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMoviePlayer.m; sourceTree = "<group>"; };
-		15D200C519FD4B5700741669 /* CustomMoviePlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMoviePlayer.xib; sourceTree = "<group>"; };
-		15D200C819FD4DDE00741669 /* CustomVideoSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomVideoSlider.h; sourceTree = "<group>"; };
-		15D200C919FD4DDE00741669 /* CustomVideoSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomVideoSlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +79,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08A5058D19FDED7600C8C89C /* OthersPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				08A5058E19FDED9800C8C89C /* AVPlayerDemoPlaybackView.h */,
+				08A5058F19FDED9800C8C89C /* AVPlayerDemoPlaybackView.m */,
+			);
+			name = OthersPlayer;
+			sourceTree = "<group>";
+		};
+		08A5059119FDF6E000C8C89C /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				08A5059819FDF6F900C8C89C /* WZYPlayerSliderResources.bundle */,
+				08A5059219FDF6F000C8C89C /* WZYPlayerSliderPopover.m */,
+				08A5059319FDF6F000C8C89C /* WZYPlayerSliderPopover.h */,
+				08A5059419FDF6F000C8C89C /* WZYPlayerSlider.m */,
+				08A5059519FDF6F000C8C89C /* WZYPlayerSlider.h */,
+				08A5058819FDE78400C8C89C /* CustomVideoSlider.h */,
+				08A5058919FDE78400C8C89C /* CustomVideoSlider.m */,
+			);
+			name = Slider;
+			sourceTree = "<group>";
+		};
 		15D2009019FD48CF00741669 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +123,7 @@
 		15D2009B19FD48CF00741669 /* CustomAVPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				08A5058D19FDED7600C8C89C /* OthersPlayer */,
 				15D200C219FD4B4400741669 /* Player */,
 				15D200A019FD48CF00741669 /* AppDelegate.h */,
 				15D200A119FD48CF00741669 /* AppDelegate.m */,
@@ -131,11 +166,10 @@
 		15D200C219FD4B4400741669 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				15D200C319FD4B5700741669 /* CustomMoviePlayer.h */,
-				15D200C419FD4B5700741669 /* CustomMoviePlayer.m */,
-				15D200C519FD4B5700741669 /* CustomMoviePlayer.xib */,
-				15D200C819FD4DDE00741669 /* CustomVideoSlider.h */,
-				15D200C919FD4DDE00741669 /* CustomVideoSlider.m */,
+				08A5059119FDF6E000C8C89C /* Slider */,
+				08A5058519FDE78400C8C89C /* CustomMoviePlayer.h */,
+				08A5058619FDE78400C8C89C /* CustomMoviePlayer.m */,
+				08A5058719FDE78400C8C89C /* CustomMoviePlayer.xib */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -220,9 +254,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08A5059919FDF6F900C8C89C /* WZYPlayerSliderResources.bundle in Resources */,
 				15D200A819FD48CF00741669 /* Main.storyboard in Resources */,
 				15D200AD19FD48CF00741669 /* LaunchScreen.xib in Resources */,
-				15D200C719FD4B5700741669 /* CustomMoviePlayer.xib in Resources */,
+				08A5058B19FDE78400C8C89C /* CustomMoviePlayer.xib in Resources */,
 				15D200AA19FD48CF00741669 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,8 +278,11 @@
 			files = (
 				15D200A519FD48CF00741669 /* ViewController.m in Sources */,
 				15D200A219FD48CF00741669 /* AppDelegate.m in Sources */,
-				15D200CA19FD4DDE00741669 /* CustomVideoSlider.m in Sources */,
-				15D200C619FD4B5700741669 /* CustomMoviePlayer.m in Sources */,
+				08A5059019FDED9800C8C89C /* AVPlayerDemoPlaybackView.m in Sources */,
+				08A5058C19FDE78400C8C89C /* CustomVideoSlider.m in Sources */,
+				08A5059619FDF6F000C8C89C /* WZYPlayerSliderPopover.m in Sources */,
+				08A5058A19FDE78400C8C89C /* CustomMoviePlayer.m in Sources */,
+				08A5059719FDF6F000C8C89C /* WZYPlayerSlider.m in Sources */,
 				15D2009F19FD48CF00741669 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
