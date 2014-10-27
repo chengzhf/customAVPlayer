@@ -29,6 +29,8 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     AVPlayerItem *playerItem;
 
     BOOL isShowingControls;
+    BOOL isFullScreen;
+    CGRect normalFrame; //非全屏的frame
     NSTimer *hideControlsTimer;
     
     //视频概要图
@@ -129,6 +131,19 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 -(void)layoutSubviews
 {
+#warning 这种方式不完全保险，如果默认大小就是全屏的则无法判断
+    //非全屏时就要记录原来的frame
+    UIWindow *w = [[UIApplication sharedApplication].delegate window];
+    CGFloat wHeight = w.bounds.size.height;
+    CGFloat wWidth = w.bounds.size.width;
+    if (self.frame.size.width<wWidth || self.frame.size.height<wHeight) {
+        normalFrame = self.frame;
+    }
+    
+    //旋转的时候会退出全屏，所以这时候要重新进入一次全屏
+    if (isFullScreen) {
+        [self enterFullScreen];
+    }
     [self setControlsLayout];
 }
 
@@ -270,7 +285,11 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 -(void)didFullScreen:(id)sender
 {
-
+    if(isFullScreen){
+        [self exitFullScreen];
+    }else{
+        [self enterFullScreen];
+    }
 }
 
 
@@ -461,6 +480,47 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 {
     controlsView.alpha = 0;
     isShowingControls = NO;
+}
+
+-(void)enterFullScreen
+{
+    
+    isFullScreen = YES;
+    [fullScreenBtn setTitle:@"退出" forState:UIControlStateNormal];
+    
+    UIWindow *w = [[UIApplication sharedApplication].delegate window];
+    self.frame = w.bounds;
+ 
+    [self showControls];
+    [self beginTimer];
+
+}
+
+-(void)exitFullScreen
+{
+    isFullScreen = NO;
+    [fullScreenBtn setTitle:@"全屏" forState:UIControlStateNormal];
+    
+    [self printRectInfo:normalFrame];
+    self.frame = normalFrame;
+    
+    [self showControls];
+    [self beginTimer];
+}
+
+-(UIViewController *)getViewController
+{
+    id object = [self nextResponder];
+    while (![object isKindOfClass:[UIViewController class]] && object != nil) {
+        object = [object nextResponder];
+    }
+    UIViewController *uc=(UIViewController*)object;
+    return uc;
+}
+
+-(void)printRectInfo:(CGRect)rect
+{
+    NSLog(@"rect info x:%f y:%f w:%f h:%f",rect.origin.x,rect.origin.y,rect.size.width,rect.size.height);
 }
 
 @end
