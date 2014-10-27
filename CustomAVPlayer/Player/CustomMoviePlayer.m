@@ -28,6 +28,8 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 @interface CustomMoviePlayer()
 {
+    AVPlayerItem *playerItem;
+    
     //视频概要图
     UIView *thumbImageView;
     
@@ -96,17 +98,22 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 #pragma  mark - init methods
 -(void)awakeFromNib
 {
+    [self initCustomControls];
+    
 //    NSString *movieURL = @"http://www.jxvdy.com/file/upload/201309/18/18-10-03-19-3.mp4";
     NSString *movieURL = @"http://fkzt.nos.netease.com/ios_sample.mp4";
     
-    //使用playerItem获取视频的信息，当前播放时间，总时间等
-    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:movieURL]];
-    //player是视频播放的控制器，可以用来快进播放，暂停等
+    playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:movieURL]];
     player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [player addObserver:self forKeyPath:@"status" options:0 context:AVPlayerDemoPlaybackViewControllerStatusObservationContext];
+    //监控视频状态
+    [player.currentItem addObserver:self forKeyPath:@"status" options:0 context:AVPlayerDemoPlaybackViewControllerStatusObservationContext];
+    //监控缓冲状态
+    [player.currentItem  addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+    //监控播放状态
+    [self monitorMovieProgress];
     
-    [self initCustomControls];
+    
 }
 
 -(void)layoutSubviews
@@ -143,14 +150,10 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     [playDurationLabel setText:@"000:00"];
     [bottomBarView addSubview:durationLabel];
     [bottomBarView addSubview:playDurationLabel];
-
     
     //滑动条
     movieSlider = [[WZYPlayerSlider alloc] init];
-    movieSlider.maximumValue = 60.0f;
-    movieSlider.duration = 60.0f;
-    movieSlider.availableDuration = 30.0f;
-    movieSlider.value = 10.1F;
+    movieSlider.minimumValue = 0.0f;
     [movieSlider.layer setBorderColor:[UIColor redColor].CGColor];
     [movieSlider.layer setBorderWidth:1.0f];
     [movieSlider addTarget:self action:@selector(didSliderValueChange:) forControlEvents:UIControlEventValueChanged];
@@ -227,11 +230,118 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 
 #pragma mark - state control methods
-- (void)observeValueForKeyPath:(NSString*) path ofObject:(id)object change:(NSDictionary*)change context:(void*)context
+- (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
 {
-    if (player.status == AVPlayerStatusReadyToPlay) {
-        [self setPlayer:player];
-        [player play];
+    if ([keyPath isEqualToString:@"status"]) {
+        NSLog(@"status:%ld",(long)player.status);
+        if (player.status == AVPlayerStatusReadyToPlay) {
+            //开始播放并设置总时间
+            [self setPlayer:player];
+            [player play];
+            [self setDuration];
+        }
+    }
+    
+    if ([keyPath isEqualToString:@"loadedTimeRanges"])
+    {
+        float bufferTime = [self availableDuration];
+        movieSlider.availableDuration = bufferTime;
+    }
+
+}
+
+//设置视频总时间
+-(void)setDuration
+{
+    //计算视频总时间
+    CMTime totalTime = player.currentItem.duration;
+    CGFloat totalMovieDuration = (CGFloat)totalTime.value/totalTime.timescale;
+    NSString *totalDurationStr = [self timeInfoFormat:totalMovieDuration];
+    NSLog(@"totalMovieDuration:%@",totalDurationStr);
+    //在totalTimeLabel上显示总时间
+    durationLabel.text = totalDurationStr;
+    //设置slider
+    movieSlider.maximumValue = totalMovieDuration;
+    movieSlider.duration = totalMovieDuration;
+}
+
+//监控视频播放的进度
+-(void)monitorMovieProgress{
+    //修改slider和前面的text
+    __weak CustomMoviePlayer *weakSelf = self;
+    __weak AVPlayer *weakPlayer = player;
+    __weak WZYPlayerSlider *weakSlider = movieSlider;
+    __weak UILabel *weakCurrentimeLabel = playDurationLabel;
+    [player addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:NULL usingBlock:^(CMTime time){
+        //获取当前时间
+        CMTime currentTime = weakPlayer.currentItem.currentTime;
+        //转成秒数
+        CGFloat currentPlayTime = (CGFloat)currentTime.value/currentTime.timescale;
+        weakSlider.value = currentPlayTime;
+        weakCurrentimeLabel.text = [weakSelf timeInfoFormat:currentPlayTime];
+    }];
+    
+    //添加拖动事件
+    [movieSlider addTarget:self action:@selector(scrubbingDidBegin:) forControlEvents:UIControlEventTouchDown];
+    [movieSlider addTarget:self action:@selector(scrubberIsScrolling:) forControlEvents:UIControlEventValueChanged];
+    [movieSlider addTarget:self action:@selector(scrubbingDidEnd:) forControlEvents:(UIControlEventTouchUpInside | UIControlEventTouchCancel)];
+}
+
+//按动滑块
+-(void)scrubbingDidBegin:(id)sender
+{
+    [player pause];
+}
+
+//快进
+-(void)scrubberIsScrolling:(id)sender
+{
+    double currentTime = movieSlider.value;
+    //转换成CMTime才能给player来控制播放进度
+    CMTime dragedCMTime = CMTimeMake(currentTime, 1);
+    [player seekToTime:dragedCMTime completionHandler:
+     ^(BOOL finish)
+     {
+//         if (isPlaying == YES)
+//         {
+//             [_LGCustomMoviePlayerController.player play];
+//         }
+         
+         [player play];
+     }];
+}
+
+-(void)scrubbingDidEnd:(id)sender
+{
+//    self.Moviebuffer.hidden = NO;
+//    [_Moviebuffer startAnimating];
+}
+
+#pragma mark - private methods
+-(NSString *)timeInfoFormat:(CGFloat)timeNumber
+{
+    NSDate *d = [NSDate dateWithTimeIntervalSince1970:timeNumber];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    if (timeNumber/3600 >= 1) {
+        [formatter setDateFormat:@"HH:mm:ss"];
+    }else{
+        [formatter setDateFormat:@"mm:ss"];
+    }
+    NSString *showtimeNew = [formatter stringFromDate:d];
+    return showtimeNew;
+}
+
+//获得加载进度
+- (CGFloat)availableDuration
+{
+    NSArray *loadedTimeRanges = [[player currentItem] loadedTimeRanges];
+    if ([loadedTimeRanges count] > 0) {
+        CMTimeRange timeRange = [[loadedTimeRanges objectAtIndex:0] CMTimeRangeValue];
+        float startSeconds = CMTimeGetSeconds(timeRange.start);
+        float durationSeconds = CMTimeGetSeconds(timeRange.duration);
+        return (startSeconds + durationSeconds);
+    } else {
+        return 0.0f;
     }
 }
 
