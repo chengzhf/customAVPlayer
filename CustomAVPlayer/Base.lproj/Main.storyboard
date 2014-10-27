@@ -42,8 +42,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="view1" destination="5Zv-cr-uBG" id="FNV-JW-oDQ"/>
-                        <outlet property="view2" destination="pdm-p1-a0o" id="EWV-Vi-Jrv"/>
+                        <outlet property="player1" destination="5Zv-cr-uBG" id="WaZ-PA-Krh"/>
+                        <outlet property="player2" destination="pdm-p1-a0o" id="McF-Rf-xAo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

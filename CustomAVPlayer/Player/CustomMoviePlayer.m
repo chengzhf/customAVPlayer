@@ -13,7 +13,7 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 
 @interface CustomMoviePlayer()
 {
-    AVPlayerLayer *playerLayer;
+
 
 }
 @end
@@ -40,9 +40,19 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     return [(AVPlayerLayer*)[self layer] player];
 }
 
+-(AVPlayerLayer*)playerLayer
+{
+    return (AVPlayerLayer*)[self layer];
+}
+
 - (void)setPlayer:(AVPlayer*)p
 {
     [(AVPlayerLayer*)[self layer] setPlayer:p];
+}
+
+- (void)setVideoFillMode:(NSString *)fillMode
+{
+    [self playerLayer].videoGravity = fillMode;
 }
 
 -(void)awakeFromNib
@@ -56,20 +66,11 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     player = [AVPlayer playerWithPlayerItem:playerItem];
     
     [player addObserver:self forKeyPath:@"status" options:0 context:AVPlayerDemoPlaybackViewControllerStatusObservationContext];
-
-//    //获取播放的图层
-//    playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-//    playerLayer.frame = self.layer.bounds;
-//    playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-//    //添加到图层
-//    [self.layer addSublayer:playerLayer];
-//    //播放
-//    [player play];
 }
 
 -(void)updateLayerFrame
 {
-    playerLayer.frame = self.layer.bounds;
+    [self playerLayer].frame = self.layer.bounds;
 }
 
 - (void)observeValueForKeyPath:(NSString*) path ofObject:(id)object change:(NSDictionary*)change context:(void*)context

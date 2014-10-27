@@ -16,5 +16,6 @@
 @property(nonatomic,retain) AVPlayer *player;
 
 -(void)updateLayerFrame;
+- (void)setVideoFillMode:(NSString *)fillMode;
 
 @end

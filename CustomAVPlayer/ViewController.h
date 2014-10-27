@@ -16,9 +16,8 @@
 @interface ViewController : UIViewController
 
 
-
-@property (weak, nonatomic) IBOutlet CustomMoviePlayer *view1;
-@property (weak, nonatomic) IBOutlet CustomMoviePlayer *view2;
+@property (weak, nonatomic) IBOutlet CustomMoviePlayer *player1;
+@property (weak, nonatomic) IBOutlet CustomMoviePlayer *player2;
 
 @end
 
